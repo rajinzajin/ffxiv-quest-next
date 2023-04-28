@@ -1,5 +1,4 @@
 import SearchQuest from "@/components/SearchQuest";
-
 export default function Home() {
 	const quests = require("@/data/quests.json")
 	return (
