@@ -6,6 +6,43 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --bg-ffxiv-opacity: 0.9;
+  --rgb-primary: 32, 36, 66;
+  --rgb-secondary: 37, 41, 74;
+  --color-primary: rgb(var(--rgb-primary));
+  --color-secondary: rgb(var(--rgb-secondary));
+
+  --color-highlight-1: rgb(37, 99, 235);
+  --color-highlight-2: rgb(96, 186, 228);
+}
+
+.bg-ffxiv {
+  background-image: linear-gradient(rgba(var(--rgb-secondary), var(--bg-ffxiv-opacity)), rgba(var(--rgb-secondary), var(--bg-ffxiv-opacity))), url(/img/tiny/ffxiv.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://raw.githubusercontent.com/rajinzajin/ffxiv-market-next/main/public/fonts/Material-Symbols-Outlined.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: Chelsea Market;
+  src: url(https://raw.githubusercontent.com/rajinzajin/ffxiv-market-next/main/public/fonts/ChelseaMarket-Regular.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: Catamaran;
+  src: url(https://raw.githubusercontent.com/rajinzajin/ffxiv-market-next/main/public/fonts/catamaran.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(https://raw.githubusercontent.com/rajinzajin/ffxiv-market-next/main/public/fonts/Poppins-Regular.ttf) format("opentype");
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,11 +54,50 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--color-primary);
+}
+
+#sidebar {
+  background-image: linear-gradient(rgba(var(--rgb-primary), var(--bg-ffxiv-opacity)), rgba(var(--rgb-primary), var(--bg-ffxiv-opacity))), url(/img/tiny/ffxiv-2.jpg);
+  background-position: 73% 15%;
+}
+
+.loader {
+  border: 5px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.bordered-active-1 {
+  outline: 2px solid white;
+}
+
+.bordered-hover-1:hover {
+  outline: 2px solid white;
+}
+
+#globalLoader {
+  position: fixed;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
